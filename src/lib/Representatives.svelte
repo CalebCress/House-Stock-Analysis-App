@@ -4,7 +4,7 @@
 
     let representatives = [];
     currentRepData = data;
-    let rep;
+    let rep = "All";
     data.forEach(transaction => {
         if (!representatives.includes(transaction.representative)) {
             representatives.push(transaction.representative)
