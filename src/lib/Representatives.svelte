@@ -35,3 +35,9 @@
         {/each}
     </select>
 </main>
+
+<style>
+    select {
+        width: auto;
+    }
+</style>
