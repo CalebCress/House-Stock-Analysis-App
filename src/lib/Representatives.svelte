@@ -3,6 +3,7 @@
     export let currentRepData;
 
     let representatives = [];
+    currentRepData = data;
     let rep;
     data.forEach(transaction => {
         if (!representatives.includes(transaction.representative)) {
@@ -12,20 +13,25 @@
 
     function getRepData() {
         currentRepData = [];
-        data.forEach(transaction => {
-            if (transaction.representative === rep) {
-                currentRepData.push(transaction)
-            }
-        })
+        if (rep === "All") {
+            currentRepData = data;
+        } else {
+            data.forEach(transaction => {
+                if (transaction.representative === rep) {
+                    currentRepData.push(transaction)
+                }
+            })
+        }
+        // console.log(currentRepData)
         currentRepData = currentRepData;
     }
 </script>
 
 <main>
-    <select bind:value={rep} class="form-select" aria-label="Default select example">
-        <option disabled selected>Select Representative</option>
+    <select bind:value={rep}  on:change={getRepData} class="form-select" aria-label="Default select example">
+        <option selected>All</option>
         {#each representatives as representative}
-            <option value={representative}>{representative}</option>
+            <option>{representative}</option>
         {/each}
     </select>
 </main>
