@@ -1,15 +1,16 @@
 <script>
   import Representatives from './lib/Representatives.svelte';
   import Purchases from './lib/Purchases.svelte';
+  import Sales from './lib/Sales.svelte';
 
   async function getData() {
-  const response = await fetch("https://house-stock-watcher-data.s3-us-west-2.amazonaws.com/data/all_transactions.json")
-  const resData = await response.json();
-  if (response.ok) {
-    return resData;
-  } else {
-    throw new Error(resData);
-  }
+    const response = await fetch("https://house-stock-watcher-data.s3-us-west-2.amazonaws.com/data/all_transactions.json")
+    const resData = await response.json();
+    if (response.ok) {
+      return resData;
+    } else {
+      throw new Error(resData);
+    }
 	}
 
   let data = getData();
@@ -23,6 +24,7 @@
   {:then trans}
     <Representatives data={trans} bind:currentRepData/>
     <Purchases transactions={currentRepData}/>
+    <Sales transactions={currentRepData}/>
   {:catch error}
     <div class="alert alert-danger" role="alert">
       {error.message}
