@@ -2,8 +2,7 @@
     //Lloyd Doggett
     import Icon from 'svelte-awesome';
     import chevronRight from 'svelte-awesome/icons/chevronRight';
-    import ibm from '../ibm.json';
-    import SuccessGraph from './SuccessGraph.svelte';
+    import SuccessGraph from './Charts/SuccessGraph.svelte';
     export let transactions;
 
     let name;

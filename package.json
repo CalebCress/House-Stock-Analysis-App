@@ -14,7 +14,6 @@
     "vite": "^4.1.0"
   },
   "dependencies": {
-    "svelte-awesome": "^3.0.1",
-    "svelte-fusioncharts": "^1.0.0"
+    "svelte-awesome": "^3.0.1"
   }
 }
